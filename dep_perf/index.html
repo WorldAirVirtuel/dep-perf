@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur de Performance des Avions Airbus</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div id="time-date"></div>
+        <div id="status-icons">
+            <span id="wifi-icon">📶</span>
+            <span id="battery-icon">🔋 <span id="battery-percent">100%</span></span>
+        </div>
+    </header>
+    <div class="container">
+        <div class="input-section">
+            <h1>Calculateur de Performance</h1>
+
+            <!-- Airport Information -->
+            <div class="section">
+                <div class="field-group">
+                    <div class="field-label">Hauteur de la piste (ft):</div>
+                    <div class="field-input">
+                        <input type="number" id="runway-elevation" required>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <div class="field-label">Longueur de la piste (m):</div>
+                    <div class="field-input">
+                        <input type="number" id="runway-length" required>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <div class="field-label">Direction de la piste (°):</div>
+                    <div class="field-input">
+                        <input type="number" id="runway-heading" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aircraft Information -->
+            <div class="section">
+                <div class="field-group">
+                    <div class="field-label">Aircraft:</div>
+                    <div class="field-input">
+                        <select id="aircraft-type" required>
+                            <option value="A220">A220</option>
+                            <option value="A318">A318</option>
+                            <option value="A319">A319</option>
+                            <option value="A320">A320</option>
+                            <option value="A321">A321</option>
+                            <option value="A330-900">A330-900</option>
+                            <option value="A340-600">A340-600</option>
+                            <option value="A380-800">A380-800</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <div class="field-label">Weights (kg):</div>
+                    <div class="field-input">
+                        <input type="number" id="aircraft-weight" required>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <div class="field-label">Flaps:</div>
+                    <div class="field-input">
+                        <input type="number" id="flaps-setting" required>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <div class="field-label">Anti-Ice:</div>
+                    <div class="field-input">
+                        <select id="anti-ice" required>
+                            <option value="Yes">ON</option>
+                            <option value="No">OFF</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <div class="field-label">Packs:</div>
+                    <div class="field-input">
+                        <select id="packs" required>
+                            <option value="Yes">ON</option>
+                            <option value="No">OFF</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weather Conditions -->
+            <div class="section">
+                <div class="field-group">
+                    <div class="field-label">Température (°C):</div>
+                    <div class="field-input">
+                        <input type="number" id="temperature" required>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <div class="field-label">QNH (hPa):</div>
+                    <div class="field-input">
+                        <input type="number" id="qnh" required>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <div class="field-label">Vitesse du vent (kt):</div>
+                    <div class="field-input">
+                        <input type="number" id="wind-speed" required>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <div class="field-label">Direction du vent (°):</div>
+                    <div class="field-input">
+                        <input type="number" id="wind-direction" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section">
+            <h2>Résultats de Performance</h2>
+            <div id="performance-results">
+                <p>V1: <span id="v1-result"></span> kt</p>
+                <p>VR: <span id="vr-result"></span> kt</p>
+                <p>V2: <span id="v2-result"></span> kt</p>
+                <p>Décalage au Décollage: <span id="takeoff-shift"></span> m</p>
+                <p>Flaps/THS: <span id="flaps-ths"></span></p>
+                <p>Flex Temp: <span id="flex-temp"></span> °C</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Control Buttons at the bottom -->
+    <div class="control-buttons">
+        <button type="button" onclick="calculatePerformance()">Calculer</button>
+        <button type="button" onclick="resetForm()">Réinitialiser</button>
+    </div>
+    <div class="bar-button-container">
+        <a href="https://example.com" class="bar-button"></a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
